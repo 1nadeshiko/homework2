@@ -1,0 +1,181 @@
+
+/* 定义一个名为primary-color的自定义CSS变量，并设置其值为#31c27c */
+:root {
+    --primary-color: #31c27c;
+  }
+  
+  /* 设置全局样式 */
+  body {
+    margin: 0;
+    background: #f5f5f5; /* 背景颜色为淡灰色 */
+    font-family: Microsoft Yahei; /* 字体为Microsoft Yahei */
+    font-size: 14px;
+    /* min-width: 1000px; */ /* 注释掉的最小宽度设置 */
+  }
+  
+  /* 链接样式 */
+  a {
+    text-decoration: none; /* 去掉链接的下划线 */
+    color: #000; /* 链接文本颜色为黑色 */
+  }
+  
+  /* 头部样式 */
+  header {
+    height: 90px; /* 头部高度为90像素 */
+    background: white; /* 背景颜色为白色 */
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+  }
+  
+  /* 头部和主要内容的内部容器样式 */
+  .header-inner, main {
+    /* width: 1200px; */ /* 注释掉的宽度设置 */
+    padding: 20px; /* 内边距为20像素 */
+    margin: auto; /* 自动居中 */
+  }
+  
+  /* 标签列表样式 */
+  .tag-list {
+    margin-top: 50px; /* 顶部外边距为50像素 */
+    margin-bottom: 15px; /* 底部外边距为15像素 */
+  }
+  
+  /* 标签项样式 */
+  .tag-item {
+    display: inline-block; /* 内联块级元素 */
+    padding: 0 8px; /* 左右内边距为8像素 */
+    margin-right: 24px; /* 右外边距为24像素 */
+    line-height: 26px; /* 行高为26像素 */
+    color: #000; /* 文本颜色为黑色 */
+    text-decoration: none; /* 去掉文本装饰 */
+  }
+  
+  /* 选定的标签项样式 */
+  .tag-active {
+    background: var(--primary-color); /* 背景颜色为自定义的primary-color */
+    color: white; /* 文本颜色为白色 */
+  }
+  
+  /* 非选定标签项的鼠标悬停样式 */
+  .tag-item:not(.tag-active):hover {
+    color: var(--primary-color); /* 文本颜色为自定义的primary-color */
+  }
+  
+  /* 文本不换行样式 */
+  .nowrap {
+    white-space: nowrap; /* 防止文本换行 */
+    overflow: hidden; /* 隐藏溢出的内容 */
+    text-overflow: ellipsis; /* 使用省略号表示溢出的文本 */
+  }
+  
+  /* 播放列表样式 */
+  .playlist {
+    display: grid; /* 使用Grid布局 */
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); /* 自动填充列，最小宽度为200像素，分布均匀 */
+    gap: 45px 15px; /* 行和列之间的间隔 */
+    margin-bottom: 45px; /* 底部外边距为45像素 */
+  }
+  
+  /* 封面包裹样式 */
+  .cover-wrap {
+    display: flex; /* 使用Flex布局 */
+    position: relative; /* 相对定位 */
+    overflow: hidden; /* 隐藏溢出的内容 */
+    width: 100%; /* 宽度100% */
+    margin-bottom: 15px; /* 底部外边距为15像素 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    cursor: pointer; /* 鼠标悬停时显示手型光标 */
+  }
+  
+  /* 封面图片样式 */
+  .cover-img {
+    width: 100%; /* 宽度100% */
+    transition: all 0.75s; /* 平滑过渡效果，时长0.75秒 */
+  }
+  
+  /* 封面遮罩样式 */
+  .cover-mask {
+    position: absolute; /* 绝对定位 */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #000; /* 背景颜色为黑色 */
+    opacity: 0; /* 初始透明度为0，不可见 */
+    transition: all 0.5s; /* 平滑过渡效果，时长0.5秒 */
+  }
+  
+  /* 播放按钮样式 */
+  .cover-play {
+    position: absolute; /* 绝对定位 */
+    left: 50%;
+    top: 50%;
+    margin-left: -35px; /* 水平居中偏移 */
+    margin-top: -35px; /* 垂直居中偏移 */
+    opacity: 0; /* 初始透明度为0，不可见 */
+    transform: scale(0.7); /* 初始缩放为0.7倍 */
+    transition: all 0.5s; /* 平滑过渡效果，时长0.5秒 */
+  }
+  
+  /* 鼠标悬停在封面时的效果 */
+  .cover-wrap:hover .cover-mask {
+    opacity: 0.2; /* 遮罩透明度增加到0.2，半透明效果 */
+  }
+  
+  .cover-wrap:hover .cover-play {
+    opacity: 1; /* 播放按钮透明度增加到1，显示出来 */
+    transform: scale(1); /* 播放按钮恢复正常大小 */
+  }
+  
+  .cover-wrap:hover .cover-img {
+    transform: scale(1.07); /* 图片放大1.07倍 */
+  }
+  
+  /* 鼠标悬停在专辑标题上的效果 */
+  .album-title:hover {
+    color: var(--primary-color); /* 文本颜色变为自定义的primary-color */
+  }
+  
+  /* 专辑作者样式 */
+  .album-author {
+    color: #999; /* 文本颜色为灰色 */
+    line-height: 1.6; /* 行高为1.6倍 */
+  }
+  
+  /* 鼠标悬停在专辑作者上的效果 */
+  
+  .album-author:hover {
+    color: var(--primary-color); /* 鼠标悬停在专辑作者上时，文本颜色变为自定义的primary-color */
+  }
+  
+  .album-time {
+    color: #999; /* 文本颜色为灰色 */
+  }
+  
+  .page {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+  }
+  
+  .page-item {
+    display: inline-block; /* 内联块级元素 */
+    color: #a2a2a2; /* 文本颜色为灰色 */
+    line-height: 50px; /* 行高为50像素 */
+    padding: 0 20px; /* 左右内边距为20像素 */
+    margin: 10px; /* 外边距为10像素 */
+    font-size: 16px; /* 字体大小为16像素 */
+  }
+  
+  .page-current, .page-item:not(.page-more):hover {
+    background: var(--primary-color); /* 当前页以及非page-more样式的页（鼠标悬停时）的背景颜色为自定义的primary-color */
+    color: white; /* 文本颜色为白色 */
+  }
+  
+  footer {
+    margin-top: 60px; /* 顶部外边距为60像素 */
+    background: #333; /* 背景颜色为黑色 */
+    height: 200px; /* 高度为200像素 */
+  }
+  
